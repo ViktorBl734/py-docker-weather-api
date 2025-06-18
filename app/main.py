@@ -9,10 +9,14 @@ BASE_URL = "http://api.weatherapi.com/v1/current.json"
 
 
 def get_weather() -> None:
+    if not API_KEY:
+        print("Please set API_KEY environment variable")
+        return
     params = {
         "key": API_KEY,
         "q": "Paris"
     }
+
     response = requests.get(BASE_URL, params=params)
     data = response.json()
     if response.status_code == 200:
