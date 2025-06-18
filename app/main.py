@@ -7,6 +7,7 @@ load_dotenv()
 API_KEY = os.environ.get("API_KEY")
 BASE_URL = "http://api.weatherapi.com/v1/current.json"
 
+
 def get_weather() -> None:
     params = {
         "key": API_KEY,
@@ -22,6 +23,7 @@ def get_weather() -> None:
         text = data["current"]["condition"]["text"]
         result = f"{city}/{country} {updated} Weather: {temp} Celsius, {text}"
         print(result)
+
 
 if __name__ == "__main__":
     get_weather()
